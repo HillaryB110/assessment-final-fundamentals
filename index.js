@@ -108,7 +108,12 @@ return average
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let genreCount = {}
+  if (movies.length === 0){
+    return genreCount
+  }
+}
 
 /**
  * findById()
@@ -124,7 +129,13 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {
+function findById(movies, id) {
+  if (movies.length === 0 ){
+    return null;
+  }
+  if (movies===false){
+    return null
+  }
 
 }
 
@@ -155,13 +166,13 @@ function filterByGenre(movies, genre) {
   }
   for (let i = 0; i < movies.length; i++){
     let movieGenre = movies[i].genre;
-    if (!genre){
-      return genresArr
-    }
-    if (movieGenre === genre){
+    if (movieGenre == genre){
       genresArr.push(movies[i])
       return genresArr
+   
     }
+    
+    
   }
 }
 /**
@@ -186,7 +197,12 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let movieArr = []
+  if (movies.length === 0 ){
+    return movieArr
+  }
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -199,7 +215,11 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  if (movies.length === 0 ){
+    return null
+  }
+}
 
 // Do not change anything below this line.
 module.exports = {
