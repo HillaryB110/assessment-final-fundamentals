@@ -59,10 +59,10 @@ function getHighestMetascore(movies) {
     
     let metaScore = movies[i].metascore
     metaScoreValueArr.push(metaScore);
-    console.log(metaScoreValueArr)
+    // console.log(metaScoreValueArr)
     metaScoreValueArr.sort();
     max = metaScoreValueArr[metaScoreValueArr.length - 1 ]
-    console.log(+max)
+    // console.log(+max)
     return +max
     }
     if (movies.length === 0 ){
@@ -82,7 +82,20 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let rating = 0; 
+  let average = 0;
+  if (movies.length === 0 ){
+    return 0
+  }
+for (let i = 0; i< movies.length; i++){
+   let imdbRate = movies[i].imdbRating
+   rating += +imdbRate
+   average = rating/movies.length
+   
+}
+return average 
+}
 
 /**
  * countByRating()
@@ -111,7 +124,9 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById() {
+
+}
 
 /**
  * filterByGenre()
@@ -133,8 +148,22 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
-
+function filterByGenre(movies, genre) {
+  let genresArr = [];
+  if (movies.length === 0 ){
+    return genresArr
+  }
+  for (let i = 0; i < movies.length; i++){
+    let movieGenre = movies[i].genre;
+    if (!genre){
+      return genresArr
+    }
+    if (movieGenre === genre){
+      genresArr.push(movies[i])
+      return genresArr
+    }
+  }
+}
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
  * -----------------------------
