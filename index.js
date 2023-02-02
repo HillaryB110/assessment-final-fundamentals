@@ -32,7 +32,7 @@ function getAllMovieTitles(movies) {
   let titleArr =[]
   for (let i = 0; i < movies.length; i++){
     let filmTitles = movies[i].title
-    console.log(filmTitles)
+    // console.log(filmTitles)
     if(!titleArr.includes(filmTitles)){
       titleArr.push(filmTitles)
       
@@ -52,7 +52,24 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let metaScoreValueArr = [];
+  let max = "" 
+  for (let i = 0 ; i < movies.length; i++){
+    
+    let metaScore = movies[i].metascore
+    metaScoreValueArr.push(metaScore);
+    console.log(metaScoreValueArr)
+    metaScoreValueArr.sort();
+    max = metaScoreValueArr[metaScoreValueArr.length - 1 ]
+    console.log(+max)
+    return +max
+    }
+    if (movies.length === 0 ){
+      return 0
+    }
+  }
+
 
 /**
  * getAverageIMDBRating()
