@@ -54,7 +54,7 @@ function getAllMovieTitles(movies) {
  */
 function getHighestMetascore(movies) {
   let metaScoreValueArr = [];
-  let max = "" 
+  let max = 0 
   for (let i = 0 ; i < movies.length; i++){
     
     let metaScore = movies[i].metascore
@@ -130,14 +130,24 @@ function countByRating(movies) {
     };
  */
 function findById(movies, id) {
+  let idArray =[]
+  for (let i = 0; i < movies.length; i++ ){
+    if (movies[i].imdbID === id)
+    idArray.push(movies[i])
+    return idArray
+  } 
   if (movies.length === 0 ){
     return null;
   }
-  if (movies===false){
-    return null
+  if(movies[i].imdbID !== id){
+    return null;
   }
+  }
+  
+  
+  
+    
 
-}
 
 /**
  * filterByGenre()
@@ -161,20 +171,23 @@ function findById(movies, id) {
  */
 function filterByGenre(movies, genre) {
   let genresArr = [];
+ 
   if (movies.length === 0 ){
     return genresArr
   }
   for (let i = 0; i < movies.length; i++){
     let movieGenre = movies[i].genre;
-    if (movieGenre == genre){
+   
+    if (movies[i].genre.includes(genre)){
       genresArr.push(movies[i])
       return genresArr
    
     }
+    }
     
     
   }
-}
+
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
  * -----------------------------
@@ -202,6 +215,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   if (movies.length === 0 ){
     return movieArr
   }
+
 }
 
 /**
@@ -218,6 +232,19 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
 function getBiggestBoxOfficeMovie(movies) {
   if (movies.length === 0 ){
     return null
+  }
+  let boxOfficeArr = [];
+  let max = "";
+  for (let i = 0; i < movies.length; i++){
+    let bxOff = movies[i].boxOffice
+    max = movies[0].boxOffice
+    if (bxOff > max){
+      max = bxOff
+      
+    }
+    if (max === movies[i].boxOffice){
+      return movies[i].title
+    }
   }
 }
 
